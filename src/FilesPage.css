@@ -1,53 +1,71 @@
-/* src/FilesPage.css */
+/* src/FilesPage.css — сайттың жалпы стиліне сай қайта безендірілді */
 .files-page {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #7a7a7a;
-  --border: #eaeaea;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --card: #fafafa;
+  --bg: transparent;
+  --text: var(--ink, #2B2640);
+  --muted: var(--ink-soft, #5B5570);
+  --border: rgba(43, 38, 64, 0.12);
+  --accent: var(--coral, #FF7A50);
+  --accent-hover: var(--coral-dark, #E85A30);
+  --card: var(--white, #FFFFFF);
 
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  min-height: auto;
+}
+
+.files-top-card {
+  background: var(--white, #FFFFFF);
+  border-radius: 28px;
+  padding: 40px 32px 32px;
+  box-shadow: var(--shadow, 0 14px 34px rgba(43,38,64,0.10));
+  border: 1px solid var(--cream-2, rgba(43,38,64,0.06));
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .files-header {
-  padding: 32px 16px 16px;
+  padding: 0 0 8px;
   text-align: center;
-  border-bottom: 1px solid var(--border);
+  border-bottom: none;
 }
 
 .files-header h1 {
-  margin: 0 0 6px;
-  font-size: 22px;
+  margin: 0 0 10px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 42px;
   font-weight: 700;
+  color: var(--ink);
 }
 
 .files-header p {
   margin: 0;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .search-wrap {
   max-width: 640px;
-  margin: 18px auto 0;
-  padding: 0 16px;
+  margin: 24px auto 0;
+  padding: 0;
 }
 
 .search-wrap input {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 16px; /* 16px+ болмаса iOS автоматты zoom жасайды */
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  padding: 16px 22px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  border: 2px solid var(--cream-2, var(--border));
+  border-radius: 100px;
   outline: none;
-  background: var(--card);
+  background: var(--white);
+  box-shadow: var(--shadow, 0 8px 20px rgba(43,38,64,0.06));
+  transition: border-color .2s ease;
 }
+
+.search-wrap input::placeholder { color: var(--muted); font-weight: 600; }
 
 .search-wrap input:focus {
   border-color: var(--accent);
@@ -55,124 +73,174 @@
 
 .filter-tabs {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 16px;
   overflow-x: auto;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
 }
 
 .filter-tab {
   flex-shrink: 0;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  padding: 7px 16px;
+  border: 2px solid var(--cream-2, var(--border));
+  background: var(--white);
+  color: var(--muted);
+  padding: 10px 22px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
 
 .filter-tab:hover {
   border-color: var(--accent);
+  color: var(--accent-hover);
 }
 
 .filter-tab.active {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 122, 80, 0.35);
 }
 
 .files-page main {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 24px 16px 60px;
+  padding: 36px 16px 20px;
+}
+
+.doc-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--cream-2, #FFEFD9);
+}
+
+.section-icon {
+  font-size: 22px;
+  line-height: 1;
 }
 
 .folder {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  margin-left: 0;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: var(--shadow, 0 8px 20px rgba(43,38,64,0.06));
+  border: 1px solid var(--cream-2, rgba(43,38,64,0.06));
 }
 
 .folder-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin: 0 0 10px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--border);
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--cream, #FFF6E9);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.folder-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
 .folder-title .count {
-  font-weight: 400;
+  font-weight: 700;
   color: var(--muted);
   font-size: 12.5px;
+  margin-left: auto;
 }
 
 .file-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
 }
 
 /* .file-item — толық басылатын сілтеме */
 .file-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--card);
-  transition: border-color 0.15s, background 0.15s;
+  padding: 14px 16px;
+  border: 2px solid var(--cream-2, #FFEFD9);
+  border-radius: 14px;
+  background: var(--white, #FFFFFF);
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
   text-decoration: none;
-  color: var(--text);
+  color: var(--ink);
   cursor: pointer;
+  min-height: 56px;
   -webkit-tap-highlight-color: transparent;
 }
 
 .file-item:hover,
 .file-item:active {
   border-color: var(--accent);
-  background: #f0f5ff;
+  background: var(--cream, #FFF6E9);
+  transform: translateX(3px);
+}
+
+.file-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .file-name {
-  font-size: 13.5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-break: break-word;
   flex: 1;
 }
 
 .file-ext {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   color: #fff;
-  background: #9ca3af;
-  border-radius: 5px;
-  padding: 3px 7px;
+  border-radius: 6px;
+  padding: 5px 9px;
   text-transform: uppercase;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .file-ext.pdf {
-  background: #ef4444;
+  background: var(--coral, #FF7A50);
 }
 .file-ext.docx,
 .file-ext.doc {
-  background: #2563eb;
+  background: var(--sky, #2FA3C7);
 }
-.file-ext.xlsx {
-  background: #16a34a;
+.file-ext.xlsx,
+.file-ext.xls {
+  background: var(--leaf, #43A05B);
 }
 
 .empty-msg {
   text-align: center;
   color: var(--muted);
+  font-weight: 700;
   padding: 60px 0;
 }
 
@@ -181,7 +249,7 @@
   padding: 20px;
   color: var(--muted);
   font-size: 11.5px;
-  border-top: 1px solid var(--border);
+  border-top: none;
 }
 
 @media (max-width: 480px) {
@@ -189,6 +257,76 @@
     grid-template-columns: 1fr;
   }
   .files-header h1 {
-    font-size: 19px;
+    font-size: 28px;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* --- Топ / жыл сүзгі пилюльдері --- */
+
+.group-tab {
+  background: var(--white);
+}
+
+.group-tab.active {
+  background: var(--leaf, #43A05B);
+  border-color: var(--leaf, #43A05B);
+  color: #fff;
+}
+
+.year-select-wrap {
+  margin-top: 10px;
+}
+
+.year-select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid var(--cream-2, var(--border));
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.year-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.year-tab {
+  background: var(--white);
+}
+
+.year-tab.active {
+  background: var(--sun, #FFB800);
+  border-color: var(--sun, #FFB800);
+  color: var(--ink);
+}
+
+/* Жылдар қатары ені сыймаса, келесі жолға түсіп кетсін —
+   көлденең scrollbar шықпасын деп */
+.wrap-tabs {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  row-gap: 8px;
+}
+
+/* Карточка ішіндегі жеке топ таңдауы (groupPicker) — кішірек пилюльдер,
+   тақырыптың астында, файл тізімінің үстінде */
+.local-group-tabs {
+  margin: 0 0 14px 0;
+  gap: 6px;
+}
+
+.small-tab {
+  padding: 5px 14px;
+  font-size: 11.5px;
 }
