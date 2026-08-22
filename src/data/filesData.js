@@ -1,10 +1,11 @@
 // src/data/filesData.js
-// Барлық файлдар осы жерде тізілген. Жаңа файл қоссаң, тиісті
-// топтың files массивіне атауын қосу жеткілікті.
+// Барлық файлдар осы жерде тізілген (әліпби бойынша сұрыпталған).
+// Жаңа файл қоссаң, тиісті топтың files массивіне атауын қосу жеткілікті —
+// сұрыптау автоматты түрде FilesPage.jsx ішінде орындалады.
 
 export const BASE = "Нұрзат бб";
 
-export const data = [
+export const dataRaw = [
   {
     folder: "Әкімшілік құжаттар",
     files: [
@@ -237,3 +238,13 @@ export const data = [
     ]
   }
 ];
+
+// ---- Автоматты сұрыптау (әліпби бойынша, қазақ/орыс локалі) ----
+const collator = new Intl.Collator("kk", { sensitivity: "base", numeric: true });
+
+export const data = dataRaw
+  .map((group) => ({
+    ...group,
+    files: [...group.files].sort((a, b) => collator.compare(a, b)),
+  }))
+  .sort((a, b) => collator.compare(a.folder, b.folder));

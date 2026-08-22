@@ -13,18 +13,37 @@ function buildPath(folder, file) {
   return parts.map(encodeURIComponent).join("/");
 }
 
+const FILTERS = [
+  { id: "all", label: "Барлығы" },
+  { id: "pdf", label: "PDF" },
+  { id: "word", label: "Word" },
+  { id: "excel", label: "Excel" },
+];
+
+function matchesFilter(ext, filter) {
+  if (filter === "all") return true;
+  if (filter === "pdf") return ext === "pdf";
+  if (filter === "word") return ext === "docx" || ext === "doc";
+  if (filter === "excel") return ext === "xlsx" || ext === "xls";
+  return true;
+}
+
 export default function FilesPage() {
   const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("all");
 
   const groups = useMemo(() => {
     const q = query.trim().toLowerCase();
     return data
       .map((group) => ({
         ...group,
-        files: group.files.filter((f) => f.toLowerCase().includes(q)),
+        files: group.files.filter((f) => {
+          const ext = getExt(f);
+          return f.toLowerCase().includes(q) && matchesFilter(ext, filter);
+        }),
       }))
       .filter((group) => group.files.length > 0);
-  }, [query]);
+  }, [query, filter]);
 
   const totalShown = groups.reduce((sum, g) => sum + g.files.length, 0);
 
@@ -43,6 +62,19 @@ export default function FilesPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+
+        <div className="filter-tabs">
+          {FILTERS.map((f) => (
+            <button
+              key={f.id}
+              className={`filter-tab ${filter === f.id ? "active" : ""}`}
+              onClick={() => setFilter(f.id)}
+              type="button"
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <main>
