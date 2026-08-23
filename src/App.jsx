@@ -187,14 +187,29 @@ export default function App() {
             <div className="eyebrow" style={{ background: 'var(--cream)' }}>Байланыс</div>
             <h2 style={{ margin: '16px 0 24px', fontSize: '28px' }}>Бізбен хабарласыңыз</h2>
             {/* TODO: нақты мекенжай, телефон, email қой */}
-            <div className="crow"><div className="ic">📍</div><div><b>Мекенжай</b><span>[мекенжайды осында жаз]</span></div></div>
-            <div className="crow"><div className="ic">📞</div><div><b>Телефон</b><br /><a href="tel:+7XXXXXXXXXX">+7 (XXX) XXX-XX-XX</a></div></div>
-            <div className="crow"><div className="ic">✉️</div><div><b>Email</b><br /><a href="mailto:info@example.com">info@example.com</a></div></div>
+            <div className="crow"><div className="ic">📍</div><div><b>Мекенжай</b><span>Келес ауданы Ұшқын а/о Қоралас ауылы Еңбекші 140</span></div></div>
+            <div className="crow"><div className="ic">📞</div><div><b>Телефон</b><br /><a href="tel:+77054849891">+7 (705) 484-98-91 </a></div></div>
             <div className="crow"><div className="ic">🕗</div><div><b>Жұмыс уақыты</b><span>Дүйсенбі – Жұма, 08:00 – 18:00</span></div></div>
           </div>
-          <div className="map-box">
-            <div>🗺️<br /><br />[мекенжайды осында жаз]<br /><br /><span style={{ fontWeight: 900 }}>Карта осы жерге енгізіледі</span></div>
-          </div>
+          <a
+            className="map-box"
+            href="https://maps.app.goo.gl/g1YMC4VU2WcoQDaR7"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Мекенжайды Google Картадан ашу"
+          >
+            <iframe
+              className="map-iframe"
+              title="Нұрзат балабақшасының орналасқан жері"
+              src="https://maps.google.com/maps?q=%D0%9A%D0%B5%D0%BB%D0%B5%D1%81+%D0%B0%D1%83%D0%B4%D0%B0%D0%BD%D1%8B+%D2%B0%D1%88%D2%9B%D1%8B%D0%BD+%D0%B0%2Fo+%D2%9A%D0%BE%D1%80%D0%B0%D0%BB%D0%B0%D1%81+%D0%B0%D1%83%D1%8B%D0%BB%D1%8B+%D0%95%D2%A3%D0%B1%D0%B5%D0%BA%D1%88%D1%96+140&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <span className="map-overlay">
+              <span className="map-pin">📍</span>
+              Картаны ашу үшін басыңыз
+            </span>
+          </a>
         </div>
       </section>
 
