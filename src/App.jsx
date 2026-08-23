@@ -62,7 +62,6 @@ export default function App() {
             <div className="hero-stats">
               <div className="stat"><b>4</b><span>жасқа лайықталған топ</span></div>
               <div className="stat"><b>100%</b><span>гигиеналық стандартқа сай</span></div>
-              <div className="stat"><b>1</b><span>дербес дәрігерлік бөлме</span></div>
             </div>
           </div>
           <div className="hero-art">
