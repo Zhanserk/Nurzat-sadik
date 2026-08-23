@@ -1,11 +1,11 @@
 /* src/FilesPage.css — сайттың жалпы стиліне сай қайта безендірілді */
 .files-page {
   --bg: transparent;
-  --text: var(--ink, #2B2640);
-  --muted: var(--ink-soft, #5B5570);
-  --border: rgba(43, 38, 64, 0.12);
-  --accent: var(--coral, #FF7A50);
-  --accent-hover: var(--coral-dark, #E85A30);
+  --text: var(--ink, #14251E);
+  --muted: var(--ink-soft, #4A5C55);
+  --border: rgba(20, 37, 30, 0.14);
+  --accent: var(--coral, #C81E93);
+  --accent-hover: var(--coral-dark, #A3187A);
   --card: var(--white, #FFFFFF);
 
   background: var(--bg);
@@ -18,8 +18,8 @@
   background: var(--white, #FFFFFF);
   border-radius: 28px;
   padding: 40px 32px 32px;
-  box-shadow: var(--shadow, 0 14px 34px rgba(43,38,64,0.10));
-  border: 1px solid var(--cream-2, rgba(43,38,64,0.06));
+  box-shadow: var(--shadow, 0 14px 34px rgba(20,37,30,0.12));
+  border: 1px solid var(--cream-2, rgba(20,37,30,0.08));
   max-width: 900px;
   margin: 0 auto;
 }
@@ -61,7 +61,7 @@
   border-radius: 100px;
   outline: none;
   background: var(--white);
-  box-shadow: var(--shadow, 0 8px 20px rgba(43,38,64,0.06));
+  box-shadow: var(--shadow, 0 8px 20px rgba(20,37,30,0.08));
   transition: border-color .2s ease;
 }
 
@@ -106,7 +106,7 @@
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
-  box-shadow: 0 8px 18px rgba(255, 122, 80, 0.35);
+  box-shadow: 0 8px 18px rgba(30, 200, 83, 0.35);
 }
 
 .files-page main {
@@ -120,12 +120,10 @@
   background: var(--white);
   border-radius: 24px;
   padding: 30px 32px;
-  box-shadow: var(--shadow, 0 14px 34px rgba(43,38,64,0.10));
-  border: 1px solid var(--cream-2, rgba(43,38,64,0.06));
+  box-shadow: var(--shadow, 0 14px 34px rgba(20,37,30,0.12));
+  border: 1px solid var(--cream-2, rgba(20,37,30,0.08));
 }
 
-/* Бір секциядағы папкалар енді БІР ортақ карточканың ішінде,
-   екеу-екеуден қатар, бөлек фонсыз — жинақы әрі ұқыпты көрінеді */
 .folders-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -143,7 +141,7 @@
   color: var(--ink);
   margin: 0 0 20px;
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--cream-2, #FFEFD9);
+  border-bottom: 2px solid var(--cream-2, #F0F0F0);
 }
 
 .section-icon {
@@ -159,16 +157,14 @@
   padding: 22px 24px;
   box-shadow: none;
   border: none;
-  border-bottom: 1px solid var(--cream-2, #FFEFD9);
+  border-bottom: 1px solid var(--cream-2, #F0F0F0);
   height: 100%;
 }
 
-/* Тордағы сол жақ баған үшін оң жақ бөлгіш сызық */
 .folders-grid .folder:nth-child(odd) {
-  border-right: 1px solid var(--cream-2, #FFEFD9);
+  border-right: 1px solid var(--cream-2, #F0F0F0);
 }
 
-/* Соңғы екі папканың (жұп/тақ) астыңғы сызығын алып тастау */
 .folders-grid .folder:nth-last-child(-n+2) {
   border-bottom: none;
 }
@@ -179,7 +175,7 @@
   color: var(--ink);
   margin: 0 0 14px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--cream, #FFF6E9);
+  border-bottom: 2px solid var(--cream, #FAFAFA);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -204,13 +200,12 @@
   gap: 12px;
 }
 
-/* .file-item — толық басылатын сілтеме */
 .file-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   padding: 14px 16px;
-  border: 2px solid var(--cream-2, #FFEFD9);
+  border: 2px solid var(--cream-2, #F0F0F0);
   border-radius: 14px;
   background: var(--white, #FFFFFF);
   transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
@@ -224,7 +219,7 @@
 .file-item:hover,
 .file-item:active {
   border-color: var(--accent);
-  background: var(--cream, #FFF6E9);
+  background: var(--cream, #FAFAFA);
   transform: translateX(3px);
 }
 
@@ -256,15 +251,15 @@
 }
 
 .file-ext.pdf {
-  background: var(--coral, #FF7A50);
+  background: var(--coral, #1EC853);
 }
 .file-ext.docx,
 .file-ext.doc {
-  background: var(--sky, #2FA3C7);
+  background: var(--sky, #1EC8A8);
 }
 .file-ext.xlsx,
 .file-ext.xls {
-  background: var(--leaf, #43A05B);
+  background: var(--sun, #3EC81E);
 }
 
 .empty-msg {
@@ -288,15 +283,13 @@
   }
 }
 
-/* --- Топ / жыл сүзгі пилюльдері --- */
-
 .group-tab {
   background: var(--white);
 }
 
 .group-tab.active {
-  background: var(--leaf, #43A05B);
-  border-color: var(--leaf, #43A05B);
+  background: var(--leaf, #1EC853);
+  border-color: var(--leaf, #1EC853);
   color: #fff;
 }
 
@@ -327,21 +320,17 @@
 }
 
 .year-tab.active {
-  background: var(--sun, #FFB800);
-  border-color: var(--sun, #FFB800);
+  background: var(--sun, #3EC81E);
+  border-color: var(--sun, #3EC81E);
   color: var(--ink);
 }
 
-/* Жылдар қатары ені сыймаса, келесі жолға түсіп кетсін —
-   көлденең scrollbar шықпасын деп */
 .wrap-tabs {
   flex-wrap: wrap;
   overflow-x: visible;
   row-gap: 8px;
 }
 
-/* Карточка ішіндегі жеке топ таңдауы (groupPicker) — кішірек пилюльдер,
-   тақырыптың астында, файл тізімінің үстінде */
 .local-group-tabs {
   margin: 0 0 14px 0;
   gap: 6px;
@@ -352,9 +341,6 @@
   font-size: 11.5px;
 }
 
-/* ===================== АДАПТИВТІ СТИЛЬДЕР ===================== */
-
-/* Планшет */
 @media (max-width: 768px) {
   .files-top-card {
     padding: 30px 20px 24px;
@@ -381,13 +367,12 @@
   .folders-grid { grid-template-columns: 1fr; gap: 0; }
   .folders-grid .folder:nth-child(odd) { border-right: none; }
   .folders-grid .folder:last-child { border-bottom: none; }
-  .folders-grid .folder:nth-last-child(-n+2) { border-bottom: 1px solid var(--cream-2, #FFEFD9); }
+  .folders-grid .folder:nth-last-child(-n+2) { border-bottom: 1px solid var(--cream-2, #F0F0F0); }
   .folders-grid .folder:last-child { border-bottom: none; }
 
   .file-list { grid-template-columns: 1fr; gap: 10px; }
 }
 
-/* Телефон */
 @media (max-width: 480px) {
   .files-top-card {
     padding: 24px 14px 20px;
@@ -438,7 +423,6 @@
   .empty-msg { padding: 40px 0; font-size: 14px; }
 }
 
-/* Кішкентай телефон */
 @media (max-width: 360px) {
   .files-header h1 { font-size: 21px; }
   .filter-tab { padding: 7px 12px; font-size: 11.5px; }

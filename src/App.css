@@ -1,19 +1,20 @@
 :root {
-  --cream: #FFF6E9;
-  --cream-2: #FFEFD9;
-  --ink: #2B2640;
-  --ink-soft: #5B5570;
-  --coral: #FF7A50;
-  --coral-dark: #E85A30;
-  --leaf: #43A05B;
-  --leaf-dark: #2F7A42;
-  --sky: #2FA3C7;
-  --sky-dark: #1E7C99;
-  --sun: #FFB800;
+  /* Негізгі түс — жасыл. Фон — таза ақ. Қалған 3 түс қосымша акцент ретінде. */
+  --cream: #FFFFFF;        /* негізгі фон — таза ақ */
+  --cream-2: #F0FBF3;      /* сәл жасыл реңкті ашық фон (карточкалар аясы) */
+  --ink: #14251E;          /* негізгі мәтін — қара-жасыл реңкті қара */
+  --ink-soft: #4A5C55;     /* қосалқы мәтін */
+  --coral: #1EC853;        /* НЕГІЗГІ түс — жасыл (батырмалар, акценттер) */
+  --coral-dark: #17A544;   /* жасылдың қоюырақ реңі (hover) */
+  --leaf: #1EC853;         /* жасыл акцент (негізгімен бірдей) */
+  --leaf-dark: #17A544;    /* жасылдың қоюырақ реңі */
+  --sky: #1EC8A8;          /* көгілдір-жасыл — қосымша акцент */
+  --sky-dark: #17A388;     /* оның қоюырақ реңі */
+  --sun: #3EC81E;          /* ашық жасыл — қосымша акцент */
   --white: #FFFFFF;
   --radius-lg: 28px;
   --radius-md: 18px;
-  --shadow: 0 14px 34px rgba(43, 38, 64, 0.10);
+  --shadow: 0 14px 34px rgba(20, 37, 30, 0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,7 +61,7 @@ header {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255, 246, 233, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(43, 38, 64, 0.06);
+  border-bottom: 1px solid rgba(20, 37, 30, 0.1);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
 .logo { display: flex; align-items: center; gap: 12px; font-family: 'Baloo 2'; font-weight: 800; font-size: 22px; }
@@ -70,7 +71,7 @@ header {
   display: flex; align-items: center; justify-content: center;
   color: white; font-size: 22px; font-weight: 800;
   transform: rotate(-6deg);
-  box-shadow: 0 6px 14px rgba(232, 90, 48, 0.35);
+  box-shadow: 0 6px 14px rgba(30, 200, 83, 0.35);
 }
 nav.links { display: flex; gap: 30px; }
 nav.links a { font-weight: 700; font-size: 15px; color: var(--ink-soft); transition: color .2s; position: relative; }
@@ -82,9 +83,9 @@ nav.links a:hover { color: var(--coral-dark); }
   font-weight: 800; font-size: 15px; border: none; cursor: pointer;
   transition: transform .18s ease, box-shadow .18s ease;
 }
-.btn-primary { background: var(--coral); color: white; box-shadow: 0 10px 22px rgba(255, 122, 80, 0.4); }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 28px rgba(255, 122, 80, 0.48); }
-.btn-ghost { background: white; color: var(--ink); border: 2px solid rgba(43, 38, 64, 0.1); }
+.btn-primary { background: var(--coral); color: white; box-shadow: 0 10px 22px rgba(30, 200, 83, 0.4); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 28px rgba(30, 200, 83, 0.48); }
+.btn-ghost { background: white; color: var(--ink); border: 2px solid rgba(20, 37, 30, 0.14); }
 .btn-ghost:hover { border-color: var(--coral); color: var(--coral-dark); }
 
 /* Hero */
@@ -147,16 +148,35 @@ section { padding: 90px 0; }
 /* Groups */
 .groups { background: var(--cream); }
 .group-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.gcard { background: white; border-radius: var(--radius-md); padding: 30px 26px; box-shadow: var(--shadow); transition: transform .25s ease; border-top: 6px solid var(--coral); }
+.gcard { background: white; border-radius: var(--radius-md); padding: 0; box-shadow: var(--shadow); transition: transform .25s ease; border-top: 6px solid var(--coral); overflow: hidden; }
 .gcard:nth-child(2) { border-top-color: var(--leaf); }
 .gcard:nth-child(3) { border-top-color: var(--sky); }
 .gcard:nth-child(4) { border-top-color: var(--sun); }
 .gcard:hover { transform: translateY(-8px); }
+
+/* ФИКС: фото дверей с приклеенными табличками названий — раньше center
+   обрезал их ровно по табличке, из-за чего текст накладывался и обрезался.
+   top center показывает верх фото, где обычно находится табличка целиком. */
+.gcard-photo {
+  height: 150px;
+  background-size: cover;
+  background-position: top center;
+}
+
+.gcard-body { padding: 24px 24px 28px; }
 .gcard .num { font-family: 'Baloo 2'; font-size: 15px; color: var(--ink-soft); font-weight: 700; margin-bottom: 10px; }
 .gcard h3 { font-size: 22px; margin-bottom: 10px; }
 .gcard p { color: var(--ink-soft); font-weight: 600; font-size: 14.5px; line-height: 1.6; margin-bottom: 14px; }
 .gcard ul li { font-size: 13.5px; font-weight: 700; color: var(--ink-soft); padding-left: 22px; position: relative; margin-bottom: 6px; }
 .gcard ul li::before { content: "✓"; position: absolute; left: 0; color: var(--leaf); font-weight: 800; }
+
+/* Точечная подстройка позиции обрезки под конкретные карточки групп,
+   если "top center" всё ещё не идеально показывает табличку.
+   Меняй проценты (0% = самый верх, 100% = самый низ фото) под каждое фото. */
+.group-cards .gcard:nth-child(1) .gcard-photo { background-position: center 15%; } /* Кіші топ / Байтерек */
+.group-cards .gcard:nth-child(2) .gcard-photo { background-position: center 15%; } /* Ортаңғы топ / Балапан */
+.group-cards .gcard:nth-child(3) .gcard-photo { background-position: center 5%;  } /* Үлкен топ / Күншуақ — табличка ближе к верху */
+.group-cards .gcard:nth-child(4) .gcard-photo { background-position: center 15%; } /* МА тобы / Болашақ */
 
 /* Advantages */
 .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -184,10 +204,26 @@ section { padding: 90px 0; }
 /* Gallery */
 .gallery { background: var(--cream); }
 .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 150px; gap: 16px; }
-.g-item { border-radius: 20px; background-size: cover; background-position: center; position: relative; overflow: hidden; box-shadow: var(--shadow); }
-.g-item span { position: absolute; left: 14px; bottom: 12px; color: white; font-weight: 800; font-size: 13px; background: rgba(43,38,64,0.55); padding: 5px 12px; border-radius: 100px; }
+
+/* ФИКС: та же проблема с табличками на дверях в галерее */
+.g-item {
+  border-radius: 20px;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.g-item span { position: absolute; left: 14px; bottom: 12px; color: white; font-weight: 800; font-size: 13px; background: rgba(20,37,30,0.62); padding: 5px 12px; border-radius: 100px; }
 .g-wide { grid-column: span 2; }
 .g-tall { grid-row: span 2; }
+
+/* Точечная подстройка для карточек-дверей в галерее (Балапан, Байтерек,
+   Күншуақ, Болашақ) — подставь свои проценты по каждому фото при необходимости */
+.gal-grid .g-item:nth-of-type(5) { background-position: center 15%; } /* «Балапан» тобы */
+.gal-grid .g-item:nth-of-type(6) { background-position: center 15%; } /* «Байтерек» тобы */
+.gal-grid .g-item:nth-of-type(7) { background-position: center 5%;  } /* «Күншуақ» тобы */
+.gal-grid .g-item:nth-of-type(8) { background-position: center 15%; } /* «Болашақ» тобы */
 
 /* Trust / Documents — толық FilesPage осы жерге ендірілген */
 .trust { background: white; padding: 90px 0 0; }
@@ -238,7 +274,7 @@ section { padding: 90px 0; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(43, 38, 64, 0.85);
+  background: rgba(20, 37, 30, 0.85);
   color: white;
   font-weight: 800;
   font-size: 13.5px;
@@ -272,7 +308,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 0; 
     position: fixed; top: 72px; left: 0; right: 0; background: var(--cream);
     flex-direction: column; padding: 20px 28px; gap: 18px;
     display: none; border-bottom: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 14px 24px rgba(43,38,64,0.08);
+    box-shadow: 0 14px 24px rgba(20,37,30,0.12);
     max-height: calc(100vh - 72px);
     overflow-y: auto;
   }
@@ -337,7 +373,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 40px 0; 
   .section-head h2 { font-size: 24px; }
   .section-head p { font-size: 14.5px; }
 
-  .gcard, .adv, .ccard { padding: 22px 18px; }
+  .gcard-body, .adv, .ccard { padding: 22px 18px; }
   .gcard h3 { font-size: 19px; }
 
   .timeline { padding-left: 22px; }
