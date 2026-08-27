@@ -528,7 +528,7 @@ const sectionsRaw = [
         folder: "NewDocknew",
         title: "Санат куәлігі ",
         icon: "🎓",
-        files: ["САНАТ КУӘЛІГІ (1) Д (2).docx" , "PHOTO-2026-08-22-11-55-14 (2).jpg", "куәлік.pdf" ],
+        files: ["САНАТ КУӘЛІГІ (1) Д (2).docx" , "PHOTO-2026-08-22-11-55-14 (2).jpg", "куәлік.pdf"  , "куәлік (2).pdf"],
       },
     ],
   },
