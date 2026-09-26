@@ -4,7 +4,7 @@ Website for **«Нұрзат»** kindergarten (Kazakhstan). Parents can learn ab
 
 Documents are published separately on the [document portal](https://github.com/Zhanserk/Nurzat).
 
-🔗 **Live:** https://nurzat-sadik.vercel.app
+🔗 **Live:** https://www.nurzat-sadikedu.kz/
 
 ## Sections
 
